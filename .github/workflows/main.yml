@@ -16,7 +16,7 @@ jobs:
     - name: Import API Proxy
       run: |
         # Replace 'api_proxy.zip' with the name of your API proxy zip file
-        zip_file="api_proxy.zip"
+        zip_file="apiproxy.zip"
         # Replace 'zebra-prod' with your organization name
         org_name="zebra-prod"
         # Replace 'stage' with your environment name
