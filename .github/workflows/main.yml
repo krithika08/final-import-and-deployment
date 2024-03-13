@@ -15,21 +15,22 @@ jobs:
 
     - name: Import API Proxy
       run: |
-        # Replace 'api_proxy.zip' with the name of your API proxy zip file
+        # Replace 'apiproxy.zip' with the name of your API proxy zip file
         zip_file="apiproxy.zip"
         # Replace 'zebra-prod' with your organization name
         org_name="zebra-prod"
         # Replace 'stage' with your environment name
         env_name="stage"
         
-        # Import the API proxy
-        http POST "https://api.enterprise.apigee.com/v1/organizations/$org_name/apis?action=import" \
-          "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
-          file@"$zip_file" \
-          validate:=true
+        # Import the API proxy using curl
+        curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
+          -F "file=@$zip_file" \
+          "https://api.enterprise.apigee.com/v1/organizations/$org_name/apis?action=import&validate=true"
 
     - name: Deploy API Proxy to Stage
       run: |
         # Replace 'zebra-prod', 'api_proxy', and '1' with your organization name, API proxy name, and revision number respectively
-        http POST "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis/Savanna-API-Apigee-FinOps/revisions/1/deployments?action=deploy&env=$env_name" \
-          "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}"
+        curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
+          "https://api.enterprise.apigee.com/v1/organizations/$org_name/apis/api_proxy/revisions/1/deployments?action=deploy&env=$env_name"
