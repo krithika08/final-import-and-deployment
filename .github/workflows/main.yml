@@ -13,29 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up environment variables
-      run: |
-        # Set variables
-        zip_file="apiproxy.zip"
-        org_name="zebra-prod"
-        env_name="stage"
-        
-        # Print variables for debugging
-        echo "Zip File: $zip_file"
-        echo "Org Name: $org_name"
-        echo "Env Name: $env_name"
-
+    
     - name: Import API Proxy
       run: |
-        # Import the API proxy using curl
         curl -X POST \
-          -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
-          -F "file=@$zip_file" \
-          "https://api.enterprise.apigee.com/v1/organizations/$org_name/apis?action=import&validate=true"
+        -H "Content-Type: multipart/form-data" \
+        -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
+        -F "file=@apiproxy.zip" \
+        "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import"
 
-    - name: Deploy API Proxy to Stage
-      run: |
-        # Deploy the API proxy to the specified environment
-        curl -X POST \
-          -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
-          "https://api.enterprise.apigee.com/v1/organizations/$org_name/apis/api_proxy/revisions/1/deployments?action=deploy&env=$env_name"
+
+    
