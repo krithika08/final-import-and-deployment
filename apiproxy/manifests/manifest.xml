@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-AddCORS" version="SHA-512:1db1d38f6d1c6ad1d764f6848ff46c21293bfff9dadc349f4c8b1d1eeb2c66e939b4d31ac3fc90d1f5559699e72f280fb6777f34c165e491a39a4ba1f756a8e6"/>
+        <VersionInfo resourceName="AM-Callout_Response" version="SHA-512:25365f2f6086f3b4d9906f528b95bc35e1294f4673778834411ecb644da70289db663ca622a1c055e9fa70301115838e66e4d2675eb8b1aecfb4fe7c2c00fdba"/>
+        <VersionInfo resourceName="AM-RemoveAuthorizationHeader" version="SHA-512:92a9192cdcc7ef4eba3e804b97fdeaf209e9bdd19748bf6c9933948dcd613a82c308593efc24fd4186546452c6cbcb6087065a7a3540508869ce53fbaf70e8b2"/>
+        <VersionInfo resourceName="AM-SetDefaultErrorResponse" version="SHA-512:453fc34d7e9445ce6a196c97873abef3f1a228ca3a1502924134f771c31f291c5c1f40b9b0a308ddf0bd8a1dd626a5730d81baab3c7f20b38d514870926d464a"/>
+        <VersionInfo resourceName="EC-GCF_InvokeCosts" version="SHA-512:48e6abd09e9488110b2c40cbf2e1ef422401ce5790fcbff9939f08bc4a0cc80781d94f95b5a87154ce94f1e5477ea89d5bd82dd91f2ae251750242e96eb57e6d"/>
+        <VersionInfo resourceName="EC-GCF_SecureInvoke" version="SHA-512:5175f8b4434f957322a1ab99e4340177e988e0300115ec1fb5cb2769aff60683d21401cc66815adfbb2e4036907209f91ea52e1cba10383254594c52c59d2309"/>
+        <VersionInfo resourceName="EV-GetCostsParams" version="SHA-512:f57d2868d58ac19e65fea613a436b53b176c914722b6b737f20058e58c4efb0450a0f0a9547b05da632334199cfc22f199bc33e2607765a723f9e34917946b1d"/>
+        <VersionInfo resourceName="JS-SetEndpoint" version="SHA-512:9c35436c50b02b68cfc0134f21d3da027cdbe077cd91a0fc051f1af8cdc4de6ffd97781613e8f7483c41c351817cf8215e95bc5018402b272f6a4dd4e56c6ee4"/>
+        <VersionInfo resourceName="JS-VerifyCostParams" version="SHA-512:e0ea1d79893750473c9450ab8ee2138ce56a4379f4d46f2dfad71fed2c7e88b1d604c4329578791e92ed27f93ba815c7945059c79c095c5ea36fc73569360bc7"/>
+        <VersionInfo resourceName="KVM-Get_GCP_Project" version="SHA-512:31986d83c969e0cb0ee148514a848884cb776ad6319965bcb48df46aad521218a83f9a2e78df0f00a8b2e47da8c66e167ea261990c98746c26c0d9574afbf689"/>
+        <VersionInfo resourceName="RF-InvalidParams" version="SHA-512:66f84d46d24cf8f77e18f5aded6e15046af08bfa575ceabb56177bf9e146b7fbb3119c8a3d781566e243ff1eaf7c2e40bff4e7b82bd77cec05ba5581ae9f92a6"/>
+        <VersionInfo resourceName="RF-NoAuthorizationProvided" version="SHA-512:2fb8506fc28e3b79890670e74675ae0bea083f8f152fb09995c523a54a618053271e84febc86a3c502cc6cbc936fa3dc8d153933b166c92a632a2bc32aa13f5c"/>
+        <VersionInfo resourceName="VA-VerifyAPIKey" version="SHA-512:7adfb7e26139f193d432f0437c6ac3b8d6187c22278a3db76b0ac8e47e76043ab5895c5d9c0a76eada35ffcb057d2949f9357b34e314bb5c9ef1d31e462670d7"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:50f533e4623bd2f143d564ead5726d409b8a87097f28cb708d413b5d9ae1dbccea333f5b5708b6818415916f5b305f7f0b68e310639b5c4d0e948da4ddbf2695"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://JS-SetEndpoint.js" version="SHA-512:14ff91c4287cb9ba077c65c1acf94a7beee49a61ed847ea416e12a64cee8fcd6885af9dc74835315f92cb30d048a5d4d8d2f7b903744f5b03fd9784a946adbf6"/>
+        <VersionInfo resourceName="jsc://JS-VerifyCostParams.js" version="SHA-512:66727f5e14c136353b954164f7456cb3b8a2234b127366dd7163199d305bbcfc3d38c29dc71ad616f9aa24480b547228009f8f8e58d09eb2fef61a2efaab84dc"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>

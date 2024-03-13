@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-Get_GCP_Project" enabled="true" continueOnError="false" async="false" mapIdentifier="DataServices">
+    <DisplayName>KVM-Get_GCP_Project</DisplayName>
+    <Properties/>
+    <Scope>environment</Scope>
+    <Get assignTo="kvmGCProjectId">
+        <Key>
+            <Parameter>GoogleCloudProject</Parameter>
+        </Key>
+    </Get>
+</KeyValueMapOperations>

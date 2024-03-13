@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ConnectorCallout async="false" continueOnError="true" enabled="true" name="EC-GCF_InvokeCosts">
+    <DisplayName>EC-GCF_InvokeCosts</DisplayName>
+    <Connector>cf-es-ds-dataservices</Connector>
+    <Action>invoke</Action>
+    <Input><![CDATA[
+    {
+        "region" : "us-central1",
+        "projectId" : "{kvmGCProjectId}",
+        "functionName" : "Fin-Ops_API_1st",
+        "method" : "POST",
+        "payload" : {
+                        "method": "GET",
+	                    "env": ["dev","test"],
+	                    "endpoint":"costs",
+	                    "startDate": "{startDate}",
+	                    "endDate": "{endDate}"
+        }
+    }
+     ]]></Input>
+    <Output parsed="false">function.response</Output>
+</ConnectorCallout>

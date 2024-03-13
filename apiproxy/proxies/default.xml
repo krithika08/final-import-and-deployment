@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <DefaultFaultRule name="DefaultFaultRule">
+        <Step>
+            <Name>AM-SetDefaultErrorResponse</Name>
+            <Condition>(request.verb != "OPTIONS") and fault != null</Condition>
+        </Step>
+        <Step>
+            <Name>AM-AddCORS</Name>
+            <Condition>(request.verb != "OPTIONS") and fault != null</Condition>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>VA-VerifyAPIKey</Name>
+                <Condition>(request.verb != "OPTIONS") and (request.header.apikey != null)</Condition>
+            </Step>
+            <Step>
+                <Name>RF-NoAuthorizationProvided</Name>
+                <Condition>(request.verb != "OPTIONS") and (request.header.apikey == null)</Condition>
+            </Step>
+            <Step>
+                <Name>AM-RemoveAuthorizationHeader</Name>
+                <Condition>(request.verb != "OPTIONS")</Condition>
+            </Step>
+            <Step>
+                <Name>KVM-Get_GCP_Project</Name>
+                <Condition>(request.verb != "OPTIONS")</Condition>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="GetCosts">
+            <Description>Get the cost breakdown</Description>
+            <Request>
+                <Step>
+                    <Name>EV-GetCostsParams</Name>
+                </Step>
+                <Step>
+                    <Name>JS-VerifyCostParams</Name>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidParams</Name>
+                    <Condition>(getCostsErrorFlg = true)</Condition>
+                </Step>
+                <Step>
+                    <Name>EC-GCF_InvokeCosts</Name>
+                    <Condition>(getCostsErrorFlg = false)</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/costs") and(request.verb = "GET") and (request.verb != "OPTIONS")</Condition>
+        </Flow>
+        <Flow name="GetUsers">
+            <Description>Get the cost breakdown</Description>
+            <Request>
+                <Step>
+                    <Name>JS-SetEndpoint</Name>
+                </Step>
+                <Step>
+                    <Name>EC-GCF_SecureInvoke</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users") and(request.verb = "GET") and (request.verb != "OPTIONS")</Condition>
+        </Flow>
+        <Flow name="GetProjects">
+            <Description>Get the cost breakdown</Description>
+            <Request>
+                <Step>
+                    <Name>JS-SetEndpoint</Name>
+                </Step>
+                <Step>
+                    <Name>EC-GCF_SecureInvoke</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/products") and(request.verb = "GET") and (request.verb != "OPTIONS")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request>
+            <Step>
+                <Name>AM-Callout_Response</Name>
+                <Condition>(request.verb != "OPTIONS")</Condition>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>AM-AddCORS</Name>
+                <Condition>request.verb != "OPTIONS"</Condition>
+            </Step>
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v3/processes/ops/apigee</BasePath>
+        <VirtualHost>HTTPS_VHost_Prod</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default"/>
+</ProxyEndpoint>

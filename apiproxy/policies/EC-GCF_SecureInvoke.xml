@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ConnectorCallout name="EC-GCF_SecureInvoke" enabled="true" continueOnError="true" async="false">
+    <DisplayName>EC-GCF_SecureInvoke</DisplayName>
+    <Connector>cf-es-ds-dataservices</Connector>
+    <Action>invoke</Action>
+    <Input><![CDATA[
+    {
+        "region" : "us-central1",
+        "projectId" : "{kvmGCProjectId}",
+        "functionName" : "Fin-Ops_API_1st",
+        "method" : "POST",
+        "payload" : {
+                        "method": "GET",
+	                    "env": ["dev","test"],
+	                    "endpoint":"{endpoint}"
+        }
+    }
+     ]]></Input>
+    <Output parsed="false">function.response</Output>
+</ConnectorCallout>

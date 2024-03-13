@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-InvalidParams">
+    <DisplayName>RF-InvalidParams</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers>
+                <Header name="Access-Control-Allow-Origin">*</Header>
+                <Header name="Access-Control-Allow-Headers">Origin, X-Requested-With, Content-Type, Accept</Header>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+            <Payload contentType="application/json" variableSuffix="#" variablePrefix="@">
+            {
+	            "errorResponse": 
+	            {
+		            "code": "@rspErrStatusCode#",
+		            "message": "@errResponse#",
+		            "info": "@rspErrReasonPhrase#"
+	            }
+            }
+            </Payload>
+            <StatusCode>{rspErrStatusCode}</StatusCode>
+            <ReasonPhrase>{errResponse}</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

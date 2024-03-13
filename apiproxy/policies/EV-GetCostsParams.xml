@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetCostsParams">
+    <DisplayName>EV-GetCostsParams</DisplayName>
+    <Properties/>
+    <QueryParam name="startDate">
+        <Pattern ignoreCase="true">{startDate}</Pattern>
+    </QueryParam>
+    <QueryParam name="endDate">
+        <Pattern ignoreCase="true">{endDate}</Pattern>
+    </QueryParam>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>extracted</VariablePrefix>
+</ExtractVariables>

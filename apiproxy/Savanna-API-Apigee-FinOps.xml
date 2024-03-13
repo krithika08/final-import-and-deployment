@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="Savanna-API-Apigee-FinOps">
+    <Basepaths>/v3/processes/ops/apigee</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1709134573504</CreatedAt>
+    <CreatedBy>rwest@zebra.com</CreatedBy>
+    <Description>Service to get usage and cost breakdown for cross-charging for Apigee costs</Description>
+    <DisplayName>Savanna-API-Apigee-FinOps</DisplayName>
+    <LastModifiedAt>1709623906040</LastModifiedAt>
+    <LastModifiedBy>parvathi.naik1@zebra.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:6d689467d7b7df1667b320018bbcfe06ca7fb2e5297027bd489d284c95514982b92a471975256ba4927698496d3df0c0e9a847298240d98d8ceaf44c96dfe72a:ap-northeast-1</ManifestVersion>
+    <Policies>
+        <Policy>AM-AddCORS</Policy>
+        <Policy>AM-Callout_Response</Policy>
+        <Policy>AM-RemoveAuthorizationHeader</Policy>
+        <Policy>AM-SetDefaultErrorResponse</Policy>
+        <Policy>EC-GCF_InvokeCosts</Policy>
+        <Policy>EC-GCF_SecureInvoke</Policy>
+        <Policy>EV-GetCostsParams</Policy>
+        <Policy>JS-SetEndpoint</Policy>
+        <Policy>JS-VerifyCostParams</Policy>
+        <Policy>KVM-Get_GCP_Project</Policy>
+        <Policy>RF-InvalidParams</Policy>
+        <Policy>RF-NoAuthorizationProvided</Policy>
+        <Policy>VA-VerifyAPIKey</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JS-SetEndpoint.js</Resource>
+        <Resource>jsc://JS-VerifyCostParams.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

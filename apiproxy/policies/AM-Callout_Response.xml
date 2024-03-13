@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Callout_Response">
+    <DisplayName>AM-Callout_Response</DisplayName>
+    <AssignTo type="response" createNew="false"/>
+    <Set>
+        <Payload contentType="application/json">{function.response}</Payload>
+    </Set>
+</AssignMessage>
