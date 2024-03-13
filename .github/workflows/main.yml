@@ -12,7 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+    - name: Create API bundle
+      run: zip -r proxy.zip apiproxy
     
     - name: Upload API Proxy Bundle
         
