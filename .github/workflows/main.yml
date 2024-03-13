@@ -14,12 +14,11 @@ jobs:
       uses: actions/checkout@v2
 
     
-    - name: Import API Proxy
+    - name: Upload API Proxy Bundle
+        
       run: |
-        http POST "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import&name=Savanna-API-Apigee-FinOps" \
-          Authorization:"Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
-          file@apiproxy.zip \
-          validate:=true
+        curl -X POST \-H "Content-Type: multipart/form-data"\-H "Authorization:Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \-F "file=@apiproxy.zip" \"https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import&name=Savanna-API-Apigee-FinOps"
+
 
 
     
