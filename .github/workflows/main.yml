@@ -19,7 +19,7 @@ jobs:
         curl -X POST \
         -H "Content-Type: multipart/form-data" \
         -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
-        -F "file=@apiproxy.zip" \
+        -F "file=@@final-import-and-deployment/apiproxy" \
         "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import"
 
 
