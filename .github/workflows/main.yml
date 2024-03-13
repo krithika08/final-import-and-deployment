@@ -17,7 +17,11 @@ jobs:
     - name: Upload API Proxy Bundle
         
       run: |
-        curl -X POST \-H "Content-Type: multipart/form-data"\-H "Authorization:Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \-F "file=@apiproxy.zip" \"https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import&name=Savanna-API-Apigee-FinOps"
+        curl -X POST \
+        -H "Content-Type: multipart/form-data" \
+        -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
+        -F "file=@apiproxy.zip" \
+        "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import&name=Savanna-API-Apigee-FinOps"
 
 
 
