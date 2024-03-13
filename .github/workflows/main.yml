@@ -25,5 +25,8 @@ jobs:
         "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import&name=Savanna-API-Apigee-FinOps"
 
 
+    - name: Deploy Revision
+      run: "curl --fail -X POST -H \"Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}\" \"https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis?action=import&name=Savanna-API-Apigee-FinOps/revisions/1/deployments?override=true\""
+ 
 
     
