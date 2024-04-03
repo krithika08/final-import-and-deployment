@@ -1,4 +1,4 @@
-name: Import and Deploy API Proxy
+name: Import  Proxy
 
 on:
   push:
