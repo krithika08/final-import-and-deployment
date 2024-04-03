@@ -17,4 +17,4 @@ jobs:
         run: |
           curl --fail -X POST \
             -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
-            "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/environments/stage/apis/Savanna-API-Apigee-FinOps/revisions/1/deployments"
+            "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/environments/stage/apis/Savanna-API-Apigee-FinOps/revisions/16/deployments"
