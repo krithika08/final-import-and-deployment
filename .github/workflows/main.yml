@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  import_and_deploy_proxy:
+  import_proxy:
     runs-on: ubuntu-latest
 
     steps:
