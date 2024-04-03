@@ -22,7 +22,7 @@ jobs:
         -H "Content-Type: multipart/form-data" \
         -H "Authorization: Bearer ${{ secrets.PROD_APIGEE_BEARER_TOKEN }}" \
         -F "file=@apiproxy.zip" \
-        "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis/Savanna-API-Apigee-FinOps/revisions/3"
+        "https://api.enterprise.apigee.com/v1/organizations/zebra-prod/apis/Savanna-API-Apigee-FinOps/revisions/16"
 
     
 
